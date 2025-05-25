@@ -1,19 +1,101 @@
-<script>
-  const roadmap = [
-    {
-      title: "Semana 1 a 2 – Fundamentos do Flutter e Dart",
-      items: [
-        "Instalar Flutter e configurar o ambiente de desenvolvimento",
-        "Compreender a estrutura de um app Flutter",
-        "Estudar widgets básicos: Text, Image, Column, Row, Container",
-        "Aprender fundamentos de Dart: variáveis, funções, classes, tipos, null safety",
-        "Projeto: App de boas-vindas com layout simples e campos de entrada"
-      ]
-    },
-    // ... demais semanas (copie da sua versão anterior)
-  ];
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roadmap Flutter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="max-w-3xl mx-auto py-10 px-4 bg-gray-50">
+  <h1 class="text-4xl font-bold mb-4 text-center">Roadmap Flutter – 12 Semanas</h1>
+  <p class="mb-8 text-center text-gray-500">
+    Baseado no curso de Daniel Ciolfi | Estudo intensivo de 6h/dia
+  </p>
+  <div id="roadmap"></div>
 
-  const container = document.getElementById("roadmap");
+  <script>
+    const roadmap = [
+      {
+        title: "Semana 1 a 2 – Fundamentos do Flutter e Dart",
+        items: [
+          "Instalar Flutter e configurar o ambiente de desenvolvimento",
+          "Compreender a estrutura de um app Flutter",
+          "Estudar widgets básicos: Text, Image, Column, Row, Container",
+          "Aprender fundamentos de Dart: variáveis, funções, classes, tipos, null safety",
+          "Projeto: App de boas-vindas com layout simples e campos de entrada"
+        ]
+      },
+      {
+        title: "Semana 3 – Navegação e Rotas",
+        items: [
+          "Navegação entre telas (Navigator.push, pop)",
+          "Passagem de dados entre telas",
+          "Uso de BottomNavigationBar e Drawer",
+          "Projeto: App com 3 telas (perfil, produtos, contatos)"
+        ]
+      },
+      {
+        title: "Semana 4 – Integração com APIs HTTP",
+        items: [
+          "Realizar requisições HTTP com o pacote http",
+          "Modelagem de dados com JSON (conversão JSON ↔ Dart)",
+          "ListView dinâmica com dados da API",
+          "Projeto: App de notícias ou consumo de API de Pokémon"
+        ]
+      },
+      {
+        title: "Semana 5 a 6 – Persistência com SQLite e SharedPreferences",
+        items: [
+          "Introdução ao SQLite no Flutter",
+          "CRUD completo (criar, ler, atualizar, excluir)",
+          "Armazenamento simples com SharedPreferences",
+          "Projeto: App de tarefas com armazenamento local"
+        ]
+      },
+      {
+        title: "Semana 7 – Formulários e Validação",
+        items: [
+          "Uso de TextFormField e validações",
+          "Controllers e gerenciamento de estado local",
+          "Snackbars e feedback visual",
+          "Projeto: App de cadastro de usuários"
+        ]
+      },
+      {
+        title: "Semana 8 a 9 – Firebase: Autenticação e Firestore",
+        items: [
+          "Configuração do Firebase no Flutter",
+          "Autenticação com e-mail e senha",
+          "Firestore: operações CRUD",
+          "Projeto: App de login + gerenciamento de dados (ex: lista de compras)"
+        ]
+      },
+      {
+        title: "Semana 10 – Animações e UX",
+        items: [
+          "Animações com AnimatedContainer, Hero, FadeTransition",
+          "Melhorar experiência do usuário com transições suaves"
+        ]
+      },
+      {
+        title: "Semana 11 – Gerenciamento de Estado com Provider",
+        items: [
+          "Conceito de estado no Flutter",
+          "Uso de Provider (ChangeNotifier, Consumer, context.watch)",
+          "Refatorar projeto anterior com Provider"
+        ]
+      },
+      {
+        title: "Semana 12 – Projeto Final e Publicação",
+        items: [
+          "Escolher um app para desenvolver do zero usando tudo aprendido",
+          "Integrar navegação, API, Firebase, Provider, animações",
+          "Compilar para Android e iOS",
+          "Publicar APK ou preparar para App Store"
+        ]
+      }
+    ];
+
+   const container = document.getElementById("roadmap");
 
   function getProgress() {
     return JSON.parse(localStorage.getItem("flutterRoadmapProgress") || "{}");
@@ -44,6 +126,7 @@
       if (allChecked) {
         card.classList.add("border-green-500");
         statusSpan.textContent = "✅";
+        list.classList.add("hidden"); // <- Fecha a seção
       } else {
         card.classList.remove("border-green-500");
         statusSpan.textContent = "";
